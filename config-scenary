@@ -2,22 +2,18 @@
 if onStart then {
 if Telegram then   tg.sendMsg("OpenTherm  " + getIP());
 # Фикс для котлов Zota
-   boiler.command(2,    4);
+    boiler.command(2, 4);
 # Фикс для котлов Ampera
 # Используем весьдоступныйдиапазон модуляции
-   boiler.command(14,    100);
+     boiler.command(14, 100);
 # Передаем на котел комнатную температуру
-#     boiler.command(24,    0);
+#     boiler.command(24, 0);
 # Передаем на котел заданную для термостата
-#     boiler.command(16,    20);
+#     boiler.command(16, 20);
 }
 #Управление режимом работы котла(вкл/выкл СО и ГВС)
-if BoilerEnable < 2 then boiler.SetBoilerStatus(BoilerEnable,
-1, DHWenable,
-0,weatherTherm,CH2,SummerMode,dhwBlock,immergasFix);
-if DHWenable < 2 then boiler.SetBoilerStatus(BoilerEnable,
-1, DHWenable,
-0,weatherTherm,CH2,SummerMode,dhwBlock,immergasFix);
+if BoilerEnable < 2 then boiler.SetBoilerStatus(BoilerEnable,1, DHWenable,0,weatherTherm,CH2,SummerMode,dhwBlock,immergasFix);
+if DHWenable < 2 then boiler.SetBoilerStatus(BoilerEnable,1, DHWenable,0,weatherTherm,CH2,SummerMode,dhwBlock,immergasFix);
 
 # Установка температуры отопления
 if OTset1 then boiler.command(1, OTset1);
@@ -28,18 +24,16 @@ if OTset56 then boiler.command(56, OTset56);
 if timer == 0 then {
 # Режим работы котла
 
-boiler.SetBoilerStatus(BoilerEnable,
-    1, DHWenable,
-    0, weatherTherm, CH2 ,SummerMode,dhwBlock,immergasFix);
+boiler.SetBoilerStatus(BoilerEnable,1, DHWenable, 0, weatherTherm, CH2 ,SummerMode,dhwBlock,immergasFix);
 # Фикс для котлов Zota
-    boiler.command(2,    4);
+     boiler.command(2,4);
 # Фикс для котлов Ampera
-     #Используем весь доступный диапазон модуляции
-   boiler.command(14,    100);
+# Используем весь доступный диапазон модуляции
+     boiler.command(14, 100);
 # Передаем на котел комнатную температуру
-#     boiler.command(24,    0);
+#     boiler.command(24, 0);
 #Передаем на котел заданную для термостата
-#     boiler.command(16,    20);
+#     boiler.command(16,20);
 }
 
 # сброс ошибки
